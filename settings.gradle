@@ -1,0 +1,4 @@
+rootProject.name='Tweets Location'
+include ':app'
+include ':data'
+include ':viewmodel'

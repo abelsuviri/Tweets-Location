@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="tweet"
+            type="com.abelsuviri.data.model.Tweet" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.TweetDetailsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:imageUrl="@{tweet.user.profilePicture}"
+                tools:src="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/usernameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:drawablePadding="4dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/profileImageView"
+                app:layout_constraintTop_toTopOf="@+id/profileImageView"
+                android:text="@{tweet.user.name}"
+                android:drawableEnd="@{tweet.user.verified ? @drawable/ic_check_circle_24dp : null}"
+                tools:text="Abel Suviri" />
+
+            <TextView
+                android:id="@+id/tweetContentLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/profileImageView"
+                app:layout_constraintTop_toBottomOf="@+id/usernameLabel"
+                android:text="@{tweet.content}"
+                tools:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat mas" />
+
+            <TextView
+                android:id="@+id/favLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableStart="@drawable/ic_favorite_24dp"
+                android:drawablePadding="4dp"
+                android:text="@{String.valueOf(tweet.favourites)}"
+                tools:text="7"
+                app:layout_constraintStart_toStartOf="@+id/tweetContentLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tweetContentLabel" />
+
+            <TextView
+                android:id="@+id/reTweetsLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{String.valueOf(tweet.reTweets)}"
+                tools:text="7"
+                android:drawableStart="@drawable/ic_repeat_24dp"
+                android:drawablePadding="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/favLabel"
+                app:layout_constraintStart_toEndOf="@+id/favLabel"
+                app:layout_constraintTop_toTopOf="@+id/favLabel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

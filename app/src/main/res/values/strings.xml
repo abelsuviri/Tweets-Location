@@ -1,0 +1,12 @@
+<resources>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBMWtnOHZAfndeqrvj6FaQblXwhmtQGOrc</string>
+
+    <string name="app_name">Tweets Location</string>
+    <string name="search_edit_hint">Filter keyword</string>
+    <string name="settings_menu">Settings</string>
+    <string name="pin_timeout_text">Display pins in the map for</string>
+    <string name="pin_timeout_edit_hint">Time in seconds</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

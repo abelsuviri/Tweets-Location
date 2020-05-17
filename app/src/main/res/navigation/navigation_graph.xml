@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/tweetMapFragment">
+
+    <fragment
+        android:id="@+id/tweetMapFragment"
+        android:name="com.abelsuviri.viewmodel.ui.fragments.TweetMapFragment"
+        android:label="fragment_tweet_map"
+        tools:layout="@layout/fragment_tweet_map" >
+        <action
+            android:id="@+id/action_tweetMapFragment_to_tweetDetailsFragment"
+            app:destination="@id/tweetDetailsFragment" >
+            <argument
+                android:name="tweetDetailsModel"
+                app:argType="com.abelsuviri.data.model.Tweet"/>
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/tweetDetailsFragment"
+        android:name="com.abelsuviri.viewmodel.ui.fragments.TweetDetailsFragment"
+        android:label="com.abelsuviri.tweetslocation.ui.fragments.TweetDetailsFragment"
+        tools:layout="@layout/fragment_tweet_details"/>
+</navigation>

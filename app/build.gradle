@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.abelsuviri.tweetslocation"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField 'String', 'API_K', '\"mJPSOncPpZ06w0XFkOVKd6SFB\"'
+        buildConfigField 'String', 'API_S', '\"LuBYo4ek5Le95RfFUUEAE149iVnAUswTt7feewWtwJh31Ybnt0\"'
+        buildConfigField 'String', 'API_T', '\"1053349995137634306-4eK9VMir552cGqoJlK7PdcuBA5ccnp\"'
+        buildConfigField 'String', 'API_TS', '\"ZYwVvlWXzG7TgFBl7xsFl81lv2UQ5vABNIUSZ71rc5SxT\"'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    api project(':viewmodel')
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "org.conscrypt:conscrypt-android:$conscrypt_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "androidx.core:core-ktx:$ktx_version"
+    implementation "com.google.android.gms:play-services-maps:$maps_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+    implementation "oauth.signpost:signpost-core:$signpost_core_version"
+    implementation "se.akerfeldt:okhttp-signpost:$signpost_okhttp_version"
+}
